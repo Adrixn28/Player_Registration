@@ -406,22 +406,21 @@ static Scanner read_s = new Scanner(System.in);
     }
 
     public static void removePlayer(ArrayList<Contacts> player, String LastName, String SoccerTeam, int Number, String Sex){
+        Scanner r = new Scanner(System.in);
         int answer = 0;
-
         for(int i = 0; i < player.size(); i++){
             if (player.get(i).GetLastName().equalsIgnoreCase(LastName) && player.get(i).GetSoccerTeam().equalsIgnoreCase(SoccerTeam) && player.get(i).GetSex().equalsIgnoreCase(Sex) && player.get(i).GetNumberSoccer() == Number) {
                 System.out.println("DATA PLAYERS || " + LastName + "|| " + SoccerTeam + "|| " + Number + "|| " + Sex + "||.");
-                System.out.println("¿Do you want eliminate) (Y/N)");
+                System.out.println("¿Do you want eliminate? (Y/N)");
                 System.out.println("1. Yes");
                 System.out.println("2. No");
-                System.out.print("Choose an option ->");
-                pauseScreen();
                 do{
-                    while (!read_n.hasNextInt()) {
+                    System.out.print("Choose an option ->");
+                    while (!r.hasNextInt()) {
                         System.out.println("¡Enter a number, not characters!");
-                        read_s.next();
+                        r.next();
                     }
-                answer = read_n.nextInt();
+                answer = r.nextInt();
 
                 if (answer <= 0) {
                     System.out.println("¡The option can't be negative or equal to zero!");
@@ -448,4 +447,3 @@ static Scanner read_s = new Scanner(System.in);
             }
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 }
-   
